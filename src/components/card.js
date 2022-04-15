@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const Card = (article) => {
 
   const cardPanel = document.createElement('div');
@@ -45,6 +47,100 @@ const Card = (article) => {
 }
 
 const cardAppender = (selector) => {
+  const entryPoint = document.querySelector(selector)
+  axios.get('http://localhost:5001/api/articles')
+  .then(res =>{
+    console.log(res.data.articles)
+    res.data.articles.bootstrap.forEach(message => {
+      const cardDiv = Card({headline: message.headline, authorPhoto: message.authorPhoto, authorName: message.authorName})
+      entryPoint.appendChild(cardDiv)
+      
+    })
+    
+  })
+  .catch(err =>{
+    console.error(err)
+
+  })
+  .finally(() =>{
+    console.log('Its working')
+  })
+
+
+  axios.get('http://localhost:5001/api/articles')
+  .then(res =>{
+
+    res.data.articles.javascript.forEach(message => {
+      const cardDiv = Card({headline: message.headline, authorPhoto: message.authorPhoto, authorName: message.authorName})
+      entryPoint.appendChild(cardDiv)
+      
+    })
+    
+  })
+  .catch(err =>{
+    console.error(err)
+
+  })
+  .finally(() =>{
+    console.log('Its working')
+  })
+
+
+  axios.get('http://localhost:5001/api/articles')
+  .then(res =>{
+
+    res.data.articles.jquery.forEach(message => {
+      const cardDiv = Card({headline: message.headline, authorPhoto: message.authorPhoto, authorName: message.authorName})
+      entryPoint.appendChild(cardDiv)
+      
+    })
+    
+  })
+  .catch(err =>{
+    console.error(err)
+
+  })
+  .finally(() =>{
+    console.log('Its working')
+  })
+
+
+  axios.get('http://localhost:5001/api/articles')
+  .then(res =>{
+    res.data.articles.node.forEach(message => {
+      const cardDiv = Card({headline: message.headline, authorPhoto: message.authorPhoto, authorName: message.authorName})
+      entryPoint.appendChild(cardDiv)
+      
+    })
+    
+  })
+  .catch(err =>{
+    console.error(err)
+
+  })
+  .finally(() =>{
+    console.log('Its working')
+  })
+
+
+  axios.get('http://localhost:5001/api/articles')
+  .then(res =>{
+    console.log(res.data.articles)
+    res.data.articles.technology.forEach(message => {
+      const cardDiv = Card({headline: message.headline, authorPhoto: message.authorPhoto, authorName: message.authorName})
+      entryPoint.appendChild(cardDiv)
+      
+    })
+    
+  })
+  .catch(err =>{
+    console.error(err)
+
+  })
+  .finally(() =>{
+    console.log('Its working')
+  })
+    
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
